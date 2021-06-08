@@ -16,3 +16,7 @@ DATABASE_URL = env("DATABASE_URL")
 
 # Important channels
 CHANNEL_LOG = env.int("CHANNEL_LOG")
+
+# Extensions (cogs)
+EXTENSIONS = (
+)

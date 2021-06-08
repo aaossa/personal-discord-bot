@@ -5,7 +5,7 @@ from peewee import PostgresqlDatabase
 
 from bot import Thoth
 from models import database_proxy
-from settings import CHANNEL_LOG, DATABASE_URL, PREFIX, TOKEN
+from settings import CHANNEL_LOG, DATABASE_URL, EXTENSIONS, PREFIX, TOKEN
 
 
 if __name__ == '__main__':
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     database_proxy.initialize(database)
 
     # Create and run Discord client
-    client = Thoth(PREFIX, CHANNEL_LOG, database)
+    client = Thoth(PREFIX, CHANNEL_LOG, database, EXTENSIONS)
     client.run(TOKEN)
