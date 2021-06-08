@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from peewee import PostgresqlDatabase
 
 from bot import Thoth
-from models import database_proxy
+from cogs.utils.models import database_proxy
 from settings import CHANNEL_LOG, DATABASE_URL, EXTENSIONS, PREFIX, TOKEN
 
 
