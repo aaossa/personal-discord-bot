@@ -19,4 +19,5 @@ CHANNEL_LOG = env.int("CHANNEL_LOG")
 
 # Extensions (cogs)
 EXTENSIONS = (
+	"cogs.links",
 )
