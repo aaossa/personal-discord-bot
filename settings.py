@@ -10,3 +10,6 @@ PREFIX = "$"
 
 # Private token
 TOKEN = env("TOKEN")
+
+# Important channels
+CHANNEL_LOG = env.int("CHANNEL_LOG")

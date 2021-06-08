@@ -1,7 +1,7 @@
 import logging
 
 from bot import Thoth
-from settings import PREFIX, TOKEN
+from settings import CHANNEL_LOG, PREFIX, TOKEN
 
 
 if __name__ == '__main__':
@@ -17,5 +17,5 @@ if __name__ == '__main__':
     logger.addHandler(handler)
 
     # Create and run Discord client
-    client = Thoth(PREFIX)
+    client = Thoth(PREFIX, CHANNEL_LOG)
     client.run(TOKEN)
