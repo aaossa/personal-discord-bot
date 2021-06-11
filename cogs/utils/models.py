@@ -1,4 +1,5 @@
 from peewee import DatabaseProxy, Model
+from peewee import CharField, ForeignKeyField, TextField
 
 
 database_proxy = DatabaseProxy()
@@ -7,6 +8,17 @@ database_proxy = DatabaseProxy()
 class BaseModel(Model):
     class Meta:
         database = database_proxy
+
+
+class Topic(BaseModel):
+    name = CharField(unique=True)
+
+
+class Link(BaseModel):
+    topic = ForeignKeyField(Topic, backref='links')
+    token = CharField(unique=True)
+    url = TextField()
+    description = TextField()
 
 
 if __name__ == '__main__':
@@ -26,6 +38,10 @@ if __name__ == '__main__':
         host=url.hostname, port=url.port,
     )
     database_proxy.initialize(database)
+
+    # Create tables
+    database.create_tables([Topic, Link])
+    Link._schema.create_foreign_key(Link.topic)
 
     # Close connection
     database.close()
